@@ -1,0 +1,27 @@
+<nav class="navbar bg-primary text-primary-content fixed z-50">
+    <div class="navbar-start">
+        <a class="btn btn-ghost normal-case text-xl" routerLink="main">daisyUI</a>
+    </div>
+    <div class="navbar-end">
+        <ul class="menu menu-horizontal p-0" *ngIf="!currentUser">
+            <li>
+                <a routerLink="/login">
+                    Login
+                </a>
+            </li>
+            <li>
+                <a routerLink="/register">
+                    Register
+                </a>
+            </li>
+        </ul>
+        <ul class="menu menu-horizontal p-0" *ngIf="currentUser">
+            <li>
+                <a (click)="logout()">
+                    Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class='invisible navbar'></div>

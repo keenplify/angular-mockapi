@@ -1,0 +1,66 @@
+<div class="flex justify-center items-center min-h-screen">
+  <div class="card w-96 bg-base-100 shadow-xl">
+    <div class="card-body">
+      <h2 class="card-title">Register</h2>
+      <form
+        name="RegisterForm"
+        [formGroup]="registerForm"
+        (ngSubmit)="onFormSubmit()"
+        class="flex flex-col gap-2"
+      >
+        <div class="form-control w-full max-w-xs">
+          <label class="label">
+            <span class="label-text">Full Name</span>
+          </label>
+          <input
+            type="text"
+            placeholder="Full name"
+            class="input input-bordered w-full"
+            name="fullName"
+            id="fullName"
+            formControlName="fullName"
+            [ngClass]="this.registerForm.dirty ? (this.registerForm.get('fullName')?.errors !== null ? 'input-error' : 'input-success') : ''"
+          />
+          <span class="text-xs text-gray-500">Required, 3 characters minimum</span>
+        </div>
+        <div class="form-control w-full max-w-xs">
+          <label class="label">
+            <span class="label-text">Username</span>
+          </label>
+          <input
+            type="text"
+            placeholder="Type here"
+            class="input input-bordered w-full"
+            name="username"
+            id="username"
+            formControlName="username"
+            [ngClass]="this.registerForm.dirty ? (this.registerForm.get('username')?.errors !== null ? 'input-error' : 'input-success') : ''"
+          />
+          <span class="text-xs text-gray-500">Required, 6 characters minimum, letters, numbers, dashes and undescores only</span>
+        </div>
+        <div class="form-control w-full max-w-xs">
+          <label class="label">
+            <span class="label-text">Password</span>
+          </label>
+          <input
+            type="password"
+            placeholder="Type here"
+            class="input input-bordered w-full"
+            name="password"
+            id="password"
+            formControlName="password"
+            [ngClass]="this.registerForm.dirty ? (this.registerForm.get('password')?.errors !== null ? 'input-error' : 'input-success'): ''"
+          />
+          <span class="text-xs text-gray-500">Required, 6 characters minimum</span>
+        </div>
+        <button 
+          type="submit" 
+          class="btn"
+          [disabled]="registerForm.invalid"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

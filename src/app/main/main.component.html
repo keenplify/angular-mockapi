@@ -1,0 +1,14 @@
+<div class="flex justify-center items-center my-4">
+    <div class="grid grid-cols-3 gap-4 w-[768px]">
+        <div 
+            class="card shadow-xl" 
+            *ngFor="let user of users"
+        >
+            <img [src]='user.avatar' class="w-full">
+            <div class="card-body">
+                <h2 class="card-title">{{ user.fullName }}</h2>
+                <div *ngIf='user.id == currentUser?.id' class="badge badge-primary">You</div>
+            </div>
+        </div>
+    </div>
+</div>

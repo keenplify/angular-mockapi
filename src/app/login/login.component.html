@@ -1,0 +1,47 @@
+<div class="flex justify-center items-center min-h-screen">
+  <div class="card w-96 bg-base-100 shadow-xl">
+    <div class="card-body">
+      <h2 class="card-title">Login</h2>
+      <form
+        name="loginForm"
+        [formGroup]="loginForm"
+        (ngSubmit)="onFormSubmit()"
+        class="flex flex-col gap-2"
+      >
+        <div class="form-control w-full max-w-xs">
+          <label class="label">
+            <span class="label-text">Username</span>
+          </label>
+          <input
+            type="text"
+            placeholder="Type here"
+            class="input input-bordered w-full"
+            name="username"
+            id="username"
+            formControlName="username"
+          />
+        </div>
+        <div class="form-control w-full max-w-xs">
+          <label class="label">
+            <span class="label-text">Password</span>
+          </label>
+          <input
+            type="password"
+            placeholder="Type here"
+            class="input input-bordered w-full"
+            name="password"
+            id="password"
+            formControlName="password"
+          />
+        </div>
+        <button 
+          type="submit" 
+          class="btn"
+          [disabled]="loginForm.invalid"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
